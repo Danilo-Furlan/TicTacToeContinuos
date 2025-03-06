@@ -38,4 +38,40 @@ public class TileController : MonoBehaviour
         internalText.text = "";
         interactiveButton.image.sprite = gameController.tileEmpty;
     }
+
+    /// <summary>  
+    /// Verifica se este tile deve ter sua marca removida com base nos turnos do jogador.  
+    /// Se o jogador que colocou esta marca tiver realizado 4 turnos, o tile é limpo e fica disponível novamente.  
+    /// </summary>
+    public void CheckVisibility(string currentPlayerTurn)
+    {
+        // Only count turns for the player who placed this mark
+        if (!string.IsNullOrEmpty(playerMark) && playerMark == currentPlayerTurn)
+        {
+            playerTurnCount++;
+            
+            // If 4 turns of the same player have passed, clear the tile completely
+            if (playerTurnCount >= 4)
+            {
+                ResetTile();
+            }
+        }
+
+
+
+    /// <summary>  
+    /// Retorna a marca do jogador neste tile para verificação de vitória.   
+    /// </summary>
+        
+    public string GetPlayerMark()
+    {
+        return playerMark;
+    }    
+
+    }
+
+
+
+
+
 }
