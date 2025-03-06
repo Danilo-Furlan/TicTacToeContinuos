@@ -78,7 +78,7 @@ public class GameStateController : MonoBehaviour
         else if (tileList[2].text == playerTurn && tileList[5].text == playerTurn && tileList[8].text == playerTurn) GameOver(playerTurn);
         else if (tileList[0].text == playerTurn && tileList[4].text == playerTurn && tileList[8].text == playerTurn) GameOver(playerTurn);
         else if (tileList[2].text == playerTurn && tileList[4].text == playerTurn && tileList[6].text == playerTurn) GameOver(playerTurn);
-        else if (moveCount >= 9) GameOver("D");
+        else if (moveCount >= 20) GameOver("D");
         else
             ChangeTurn();
     }
